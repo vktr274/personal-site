@@ -34,7 +34,7 @@
 
 <style lang="scss">
 	.splash-img {
-		background-image: url('images/splash.jpg');
+		background-image: url('./images/splash.jpg');
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;

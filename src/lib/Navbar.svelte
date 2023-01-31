@@ -12,7 +12,7 @@
 		<div class="nav-item no-hover my-2 mr-2">
 			<div class="tile">
 				<div class="tile__icon">
-					<figure class="avatar avatar"><img src="images/avatar.jpg" alt="avatar" /></figure>
+					<figure class="avatar avatar"><img src="./images/avatar.jpg" alt="avatar" /></figure>
 				</div>
 				<div class="tile__container">
 					<p class="tile__title m-0">Viktor Modroczký</p>

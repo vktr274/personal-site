@@ -1,79 +1,83 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import type { IconButton, TextButton, User } from './types';
+
+	export let user: User;
+	export let iconButtons: IconButton[];
+	export let textButtons: TextButton[];
+
 	let activeNavItem = '';
 	let openMenu = false;
 
 	const triggerMenu = () => (openMenu = !openMenu);
 
-	$: isActive = (item: string): string => (activeNavItem === item ? ' active' : '');
+	$: isActive = (item: string): boolean => activeNavItem === item;
+
+	onMount(() => {
+		const header = document.querySelector('.header') as HTMLElement;
+		const splash = document.querySelector('.splash-img') as HTMLElement;
+		let limit = splash.offsetHeight - header.offsetHeight;
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > limit) {
+				// hide header
+				header.classList.add('animate__fadeOutUp');
+				header.classList.remove('animate__fadeInDown');
+			} else {
+				// show header
+				header.classList.add('animate__fadeInDown');
+				header.classList.remove('animate__fadeOutUp');
+			}
+		});
+		window.addEventListener('resize', () => {
+			limit = splash.offsetHeight - header.offsetHeight;
+		});
+	});
 </script>
 
-<div class="header header-fixed u-unselectable header-animated header-clear">
+<div
+	class="header header-fixed u-unselectable header-animated header-clear animate__animated animate__faster"
+>
 	<div class="header-brand">
 		<div class="nav-item no-hover my-2 mr-2">
 			<div class="tile">
 				<div class="tile__icon">
-					<figure class="avatar avatar"><img src="/images/avatar.jpg" alt="avatar" /></figure>
+					<figure class="avatar avatar"><img src={user.avatar} alt="avatar" /></figure>
 				</div>
 				<div class="tile__container">
-					<p class="tile__title m-0">Viktor Modroczký</p>
-					<p class="tile__subtitle m-0">@viktor404notfound</p>
+					<p class="tile__title m-0">{user.name}</p>
+					<p class="tile__subtitle m-0">@{user.username}</p>
 				</div>
 			</div>
 		</div>
-		<a href="#menu" class="nav-item nav-btn {openMenu ? 'active' : ''}" on:click={triggerMenu}>
+		<a href="#menu" class="nav-item nav-btn" class:active={openMenu} on:click={triggerMenu}>
 			<span />
 			<span />
 			<span />
 		</a>
 	</div>
-	<div class="header-nav {openMenu ? 'active' : ''}">
+	<div class="header-nav" class:active={openMenu}>
 		<div class="nav-left">
-			<div class="nav-item hover-grow">
-				<a
-					href="https://github.com/vktr274"
-					target="_blank"
-					rel="noopener noreferrer"
-					on:click={triggerMenu}
-				>
-					<span class="icon">
-						<i class="fab fa-wrapper fa-github" />
-					</span>
-				</a>
-			</div>
-			<div class="nav-item hover-grow">
-				<a
-					href="https://gitlab.com/vktr274"
-					target="_blank"
-					rel="noopener noreferrer"
-					on:click={triggerMenu}
-				>
-					<span class="icon">
-						<i class="fab fa-wrapper fa-gitlab" />
-					</span>
-				</a>
-			</div>
-			<div class="nav-item hover-grow">
-				<a
-					href="https://www.chess.com/member/viktor404notfound"
-					target="_blank"
-					rel="noopener noreferrer"
-					on:click={triggerMenu}
-				>
-					<span class="icon">
-						<i class="fa fa-wrapper fa-chess" />
-					</span>
-				</a>
-			</div>
+			{#each iconButtons as button}
+				<div class="nav-item hover-grow">
+					<a href={button.link} target="_blank" rel="noopener noreferrer" on:click={triggerMenu}>
+						<span class="icon">
+							<i class={button.classes} />
+						</span>
+					</a>
+				</div>
+			{/each}
 		</div>
 		<div class="nav-right">
-			<div class="hover-grow {'nav-item' + isActive('skills')}">
-				<a href="#skills" on:click={() => (triggerMenu(), (activeNavItem = 'skills'))}>Skills</a>
-			</div>
-			<div class="hover-grow {'nav-item' + isActive('projects')}">
-				<a href="#projects" on:click={() => (triggerMenu(), (activeNavItem = 'projects'))}>
-					Projects
-				</a>
-			</div>
+			{#each textButtons as button}
+				<div class="nav-item hover-grow" class:active={isActive(button.name)}>
+					<a
+						href={'#' + button.name}
+						on:click={() => (triggerMenu(), (activeNavItem = button.name))}
+					>
+						{button.text}
+					</a>
+				</div>
+			{/each}
 		</div>
 	</div>
 </div>

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import type { IconButton, TextButton, User } from './types';
 
 	export let user: User;

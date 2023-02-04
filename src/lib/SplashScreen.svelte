@@ -22,7 +22,7 @@
 	});
 </script>
 
-<div class="hero fullscreen hero-img parallax-img splash-img">
+<div class="hero fullscreen hero-img parallax-img">
 	<div class="hero-body">
 		<div class="content u-text-center u-unselectable">
 			<h1 class="headline-3">{headline}</h1>
@@ -38,10 +38,7 @@
 </div>
 
 <style lang="scss">
-	.splash-img {
+	.hero-img {
 		background-image: url('/images/splash.jpg');
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
 	}
 </style>

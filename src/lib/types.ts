@@ -13,3 +13,9 @@ export interface TextButton {
 	text: string;
 	name: string;
 }
+
+export interface Technology {
+	name: string;
+	icon: string;
+	details: string[];
+}

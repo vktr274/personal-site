@@ -1,5 +1,6 @@
 <script lang="ts">
-	import AboutMe from '$lib/AboutMe.svelte';
+	import About from '$lib/About.svelte';
+	import Skills from '$lib/Skills.svelte';
 	import SplashScreen from '$lib/SplashScreen.svelte';
 
 	const headline = 'My name is Viktor';
@@ -16,4 +17,4 @@
 </script>
 
 <SplashScreen {headline} {staticText} {loopedText} />
-<AboutMe {name} {subtitle} {avatar} {paragraph} />
+<About id="about-me" {name} {subtitle} {avatar} {paragraph} />

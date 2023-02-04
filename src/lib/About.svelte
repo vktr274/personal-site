@@ -3,9 +3,10 @@
 	export let avatar: string;
 	export let subtitle: string;
 	export let paragraph: string;
+	export let id: string;
 </script>
 
-<div class="frame max-w-sm px-4 mt-8 u-shadow-none mx-auto">
+<div {id} class="frame max-w-sm px-4 my-8 u-shadow-none mx-auto">
 	<div class="frame__header u-text-center">
 		<figure class="avatar">
 			<img src={avatar} alt="avatar" />

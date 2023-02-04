@@ -1,26 +1,22 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import type { IconButton, TextButton, User } from './types';
 
 	export let user: User;
 	export let iconButtons: IconButton[];
 	export let textButtons: TextButton[];
 
-	let activeNavItem = '';
 	let openMenu = false;
 	let hideShadow = true;
 
 	const triggerMenu = (): void => {
 		openMenu = !openMenu;
 	};
-	const changeActiveNavItem = (item: string): void => {
-		activeNavItem = item;
-	};
-
-	$: isActive = (item: string): boolean => activeNavItem === item;
 
 	let prevScrollY = 0;
 
 	const onScroll = () => {
+		if (openMenu) return;
 		const header = document.querySelector('.header') as HTMLElement;
 		if (window.scrollY > prevScrollY) {
 			// hide header
@@ -31,7 +27,7 @@
 			header.classList.add('animate__fadeInDown');
 			header.classList.remove('animate__fadeOutUp');
 		}
-		hideShadow = window.scrollY < window.innerHeight;
+		hideShadow = window.scrollY == 0;
 		prevScrollY = window.scrollY;
 	};
 </script>
@@ -74,14 +70,8 @@
 		</div>
 		<div class="nav-right">
 			{#each textButtons as button}
-				<div class="nav-item hover-grow" class:active={isActive(button.name)}>
-					<a
-						href={'#' + button.name}
-						on:click={() => {
-							triggerMenu();
-							changeActiveNavItem(button.name);
-						}}
-					>
+				<div class="nav-item hover-grow">
+					<a href={'#' + button.name} on:click={triggerMenu}>
 						{button.text}
 					</a>
 				</div>

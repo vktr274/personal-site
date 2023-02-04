@@ -19,7 +19,8 @@
 	];
 
 	const textButtons: TextButton[] = [
-		{ text: 'Skills', name: 'skills' },
+		{ text: 'Coding', name: 'coding' },
+		{ text: 'Chess', name: 'chess' },
 		{ text: 'Projects', name: 'projects' }
 	];
 </script>

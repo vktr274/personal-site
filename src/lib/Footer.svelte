@@ -1,5 +1,5 @@
 <div class="footer">
-	<h6 class="footer__title text-white uppercase">Viktor Modroczký</h6>
+	<h6 class="footer__title text-white uppercase">The End</h6>
 	<div class="content">
 		<div class="divider" />
 	</div>

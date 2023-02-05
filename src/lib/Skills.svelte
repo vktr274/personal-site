@@ -7,6 +7,11 @@
 
 <div {id} class="mx-auto max-w-md">
 	<div class="row">
+		<div class="col u-text-center">
+			<h2>My Tech Stack</h2>
+		</div>
+	</div>
+	<div class="row">
 		{#each technologies as tech}
 			<div class="col">
 				<div class="min-w-200px mx-2">

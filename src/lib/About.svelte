@@ -17,10 +17,11 @@
 	<div class="divider m-0" />
 	<div class="frame__body">
 		<div class="content u-text-center">
-			<h5>About Me</h5>
+			<h2>About Me</h2>
 			<p>
 				{paragraph}
 			</p>
 		</div>
 	</div>
+	<div class="divider m-0" />
 </div>

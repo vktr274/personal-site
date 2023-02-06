@@ -19,12 +19,10 @@
 		if (openMenu) return;
 		if (window.scrollY > prevScrollY) {
 			// hide header
-			headerElement.classList.add('animate__fadeOutUp');
-			headerElement.classList.remove('animate__fadeInDown');
+			headerElement.classList.add('header--hidden');
 		} else {
 			// show header
-			headerElement.classList.add('animate__fadeInDown');
-			headerElement.classList.remove('animate__fadeOutUp');
+			headerElement.classList.remove('header--hidden');
 		}
 		hideShadow = window.scrollY == 0;
 		prevScrollY = window.scrollY;
@@ -34,7 +32,7 @@
 <svelte:window on:scroll={onScroll} />
 
 <div
-	class="header header-fixed u-unselectable header-animated animate__animated animate__faster header-color"
+	class="header header-fixed u-unselectable header-animated header-color header__animate-visibility"
 	class:u-shadow-none={hideShadow}
 	bind:this={headerElement}
 >
@@ -83,5 +81,14 @@
 <style lang="scss">
 	.header-color {
 		background-color: rgb(242, 242, 242);
+	}
+	.header {
+		&.header__animate-visibility {
+			transition: all 0.3s ease;
+		}
+		&.header--hidden {
+			opacity: 0;
+			transform: translateY(-100%);
+		}
 	}
 </style>

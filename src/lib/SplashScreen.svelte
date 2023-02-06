@@ -11,20 +11,20 @@
 
 	const onScroll = () => {
 		if (window.scrollY > 0) {
-			transitionElement.classList.add('splash-transition--active');
+			transitionElement.classList.add('gradient--active');
 		} else {
-			transitionElement.classList.remove('splash-transition--active');
+			transitionElement.classList.remove('gradient--active');
 		}
 	};
 
 	onMount(() => {
 		setInterval(() => {
-			loopedTextElement.classList.remove('animate__fadeInDown');
-			loopedTextElement.classList.add('animate__fadeOutDown');
+			loopedTextElement.classList.remove('text-easeInDown');
+			loopedTextElement.classList.add('text-easeOutDown');
 			setTimeout(() => {
 				loopedTextElement.innerHTML = loopedText[index];
-				loopedTextElement.classList.remove('animate__fadeOutDown');
-				loopedTextElement.classList.add('animate__fadeInDown');
+				loopedTextElement.classList.remove('text-easeOutDown');
+				loopedTextElement.classList.add('text-easeInDown');
 				index = (index + 1) % loopedText.length;
 			}, 500);
 		}, 4000);
@@ -38,23 +38,19 @@
 		<div class="content u-text-center u-unselectable">
 			<h1 class="headline-3">{headline}</h1>
 			<h5 class="m-0">{staticText}</h5>
-			<h5
-				id="looped-text"
-				class="m-0 text-gray-600 animate__animated animate__fadeInDown animate__faster"
-				bind:this={loopedTextElement}
-			>
+			<h5 id="looped-text" class="m-0 text-gray-600 text-easeInDown" bind:this={loopedTextElement}>
 				{loopedText[loopedText.length - 1]}
 			</h5>
 		</div>
 	</div>
-	<div bind:this={transitionElement} class="splash-transition" />
+	<div bind:this={transitionElement} class="gradient" />
 </div>
 
 <style lang="scss">
 	.hero-img {
 		background-image: url('/images/splash.jpg');
 	}
-	.splash-transition {
+	.gradient {
 		background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.0001), #fff);
 		position: absolute;
 		left: 0;
@@ -63,8 +59,36 @@
 		height: 175px;
 		transition: all 0.3s ease;
 		opacity: 0;
-		&:global(.splash-transition--active) {
+		&:global(.gradient--active) {
 			opacity: 1;
+		}
+	}
+	@keyframes easeInDown {
+		0% {
+			opacity: 0;
+			transform: translateY(-30%);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	@keyframes easeOutDown {
+		0% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+		100% {
+			opacity: 0;
+			transform: translateY(30%);
+		}
+	}
+	#looped-text {
+		&:global(.text-easeInDown) {
+			animation: easeInDown 0.5s ease;
+		}
+		&:global(.text-easeOutDown) {
+			animation: easeOutDown 0.5s ease;
 		}
 	}
 </style>

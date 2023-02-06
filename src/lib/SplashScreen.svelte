@@ -6,26 +6,25 @@
 	export let headline: string;
 
 	let index = 0;
+	let transitionElement: HTMLElement;
+	let loopedTextElement: HTMLElement;
 
 	const activateTransition = () => {
-		const transition = document.querySelector('.splash-transition') as HTMLElement;
 		if (window.scrollY > 0) {
-			transition.classList.add('splash-transition--active');
+			transitionElement.classList.add('splash-transition--active');
 		} else {
-			transition.classList.remove('splash-transition--active');
+			transitionElement.classList.remove('splash-transition--active');
 		}
 	};
 
 	onMount(() => {
-		document.querySelector('.transition')?.classList.remove('transition--active');
-		const text = document.querySelector('#looped-text');
 		setInterval(() => {
-			text?.classList.remove('animate__fadeInDown');
-			text?.classList.add('animate__fadeOutDown');
+			loopedTextElement.classList.remove('animate__fadeInDown');
+			loopedTextElement.classList.add('animate__fadeOutDown');
 			setTimeout(() => {
-				text!.innerHTML = loopedText[index];
-				text?.classList.remove('animate__fadeOutDown');
-				text?.classList.add('animate__fadeInDown');
+				loopedTextElement.innerHTML = loopedText[index];
+				loopedTextElement.classList.remove('animate__fadeOutDown');
+				loopedTextElement.classList.add('animate__fadeInDown');
 				index = (index + 1) % loopedText.length;
 			}, 500);
 		}, 4000);
@@ -42,12 +41,13 @@
 			<h5
 				id="looped-text"
 				class="m-0 text-gray-600 animate__animated animate__fadeInDown animate__faster"
+				bind:this={loopedTextElement}
 			>
 				{loopedText[loopedText.length - 1]}
 			</h5>
 		</div>
 	</div>
-	<div class="splash-transition" />
+	<div bind:this={transitionElement} class="splash-transition" />
 </div>
 
 <style lang="scss">

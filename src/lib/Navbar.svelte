@@ -13,18 +13,18 @@
 	};
 
 	let prevScrollY = 0;
+	let headerElement: HTMLElement;
 
 	const onScroll = () => {
 		if (openMenu) return;
-		const header = document.querySelector('.header') as HTMLElement;
 		if (window.scrollY > prevScrollY) {
 			// hide header
-			header.classList.add('animate__fadeOutUp');
-			header.classList.remove('animate__fadeInDown');
+			headerElement.classList.add('animate__fadeOutUp');
+			headerElement.classList.remove('animate__fadeInDown');
 		} else {
 			// show header
-			header.classList.add('animate__fadeInDown');
-			header.classList.remove('animate__fadeOutUp');
+			headerElement.classList.add('animate__fadeInDown');
+			headerElement.classList.remove('animate__fadeOutUp');
 		}
 		hideShadow = window.scrollY == 0;
 		prevScrollY = window.scrollY;
@@ -36,6 +36,7 @@
 <div
 	class="header header-fixed u-unselectable header-animated animate__animated animate__faster header-color"
 	class:u-shadow-none={hideShadow}
+	bind:this={headerElement}
 >
 	<div class="header-brand">
 		<a href="#menu" class="nav-item nav-btn" class:active={openMenu} on:click={() => triggerMenu()}>

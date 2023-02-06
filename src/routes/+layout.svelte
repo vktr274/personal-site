@@ -2,7 +2,7 @@
 	import 'cirrus-ui';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
 
-	import Navbar from '$lib/Navbar.svelte';
+	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
 	import type { IconButton, TextButton, User } from '$lib/types';
 
@@ -28,7 +28,7 @@
 
 <header>
 	<nav>
-		<Navbar {user} {iconButtons} {textButtons} />
+		<Header {user} {iconButtons} {textButtons} />
 	</nav>
 </header>
 <main>

@@ -19,10 +19,10 @@
 		if (openMenu) return;
 		if (window.scrollY > prevScrollY) {
 			// hide header
-			headerElement.classList.add('header--hidden');
+			headerElement.classList.add('header-hidden');
 		} else {
 			// show header
-			headerElement.classList.remove('header--hidden');
+			headerElement.classList.remove('header-hidden');
 		}
 		hideShadow = window.scrollY == 0;
 		prevScrollY = window.scrollY;
@@ -32,7 +32,7 @@
 <svelte:window on:scroll={onScroll} />
 
 <div
-	class="header header-fixed u-unselectable header-animated header-color header__animate-visibility"
+	class="header header-fixed u-unselectable header-animated header-color header-animate-visibility"
 	class:u-shadow-none={hideShadow}
 	bind:this={headerElement}
 >
@@ -56,21 +56,21 @@
 					</div>
 				</div>
 			</div>
-			{#each iconButtons as button}
+			{#each iconButtons as iconButton}
 				<div class="nav-item hover-grow">
-					<a href={button.link} target="_blank" rel="noopener noreferrer">
+					<a href={iconButton.link} target="_blank" rel="noopener noreferrer">
 						<span class="icon">
-							<i class={button.classes} />
+							<i class={iconButton.classes} />
 						</span>
 					</a>
 				</div>
 			{/each}
 		</div>
 		<div class="nav-right">
-			{#each textButtons as button}
+			{#each textButtons as textButton}
 				<div class="nav-item hover-grow">
-					<a href={'#' + button.name} on:click={triggerMenu}>
-						{button.text}
+					<a href={'#' + textButton.name} on:click={triggerMenu}>
+						{textButton.text}
 					</a>
 				</div>
 			{/each}
@@ -78,15 +78,20 @@
 	</div>
 </div>
 
+<!-- 
+    svelte-check bug: if any dynamic class is applied to an element,
+    it is not reporting unused classes present in this file and allows
+    dynamic classes to work without the :global() selector
+-->
 <style lang="scss">
 	.header-color {
 		background-color: rgb(242, 242, 242);
 	}
 	.header {
-		&.header__animate-visibility {
+		&.header-animate-visibility {
 			transition: all 0.3s ease;
 		}
-		&.header--hidden {
+		&:global(.header-hidden) {
 			opacity: 0;
 			transform: translateY(-100%);
 		}

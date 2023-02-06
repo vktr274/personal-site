@@ -39,7 +39,7 @@
 	bind:this={headerElement}
 >
 	<div class="header-brand">
-		<a href="#menu" class="nav-item nav-btn" class:active={openMenu} on:click={() => triggerMenu()}>
+		<a href="#menu" class="nav-item nav-btn" class:active={openMenu} on:click={triggerMenu}>
 			<span />
 			<span />
 			<span />

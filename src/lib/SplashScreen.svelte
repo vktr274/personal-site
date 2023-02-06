@@ -9,7 +9,7 @@
 	let transitionElement: HTMLElement;
 	let loopedTextElement: HTMLElement;
 
-	const activateTransition = () => {
+	const onScroll = () => {
 		if (window.scrollY > 0) {
 			transitionElement.classList.add('splash-transition--active');
 		} else {
@@ -31,7 +31,7 @@
 	});
 </script>
 
-<svelte:window on:scroll={activateTransition} />
+<svelte:window on:scroll={onScroll} />
 
 <div class="hero fullscreen hero-img parallax-img">
 	<div class="hero-body">

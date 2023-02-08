@@ -16,7 +16,6 @@
 	let headerElement: HTMLElement;
 
 	const onScroll = () => {
-		if (openMenu) return;
 		if (window.scrollY > prevScrollY) {
 			// hide header
 			headerElement.classList.add('header-hidden');

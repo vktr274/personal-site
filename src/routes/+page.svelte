@@ -1,5 +1,6 @@
 <script lang="ts">
 	import About from '$lib/About.svelte';
+	import ChessStats from '$lib/ChessStats.svelte';
 	import Skills from '$lib/Skills.svelte';
 	import SplashScreen from '$lib/SplashScreen.svelte';
 	import type { Technology } from '$lib/types';
@@ -42,8 +43,11 @@
 			details: ['GitHub', 'GitLab']
 		}
 	];
+	const username = 'viktor404notfound';
 </script>
 
 <SplashScreen {headline} {staticText} {loopedText} />
 <About id="about-me" {name} {subtitle} {avatar} {paragraph} />
 <Skills id="tech-stack" {technologies} />
+<div class="space space--xl" />
+<ChessStats id="chess-stats" {username} />

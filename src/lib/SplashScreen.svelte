@@ -11,9 +11,9 @@
 
 	const onScroll = () => {
 		if (window.scrollY > 0) {
-			transitionElement.classList.add('gradient--active');
+			transitionElement.classList.add('gradient-active');
 		} else {
-			transitionElement.classList.remove('gradient--active');
+			transitionElement.classList.remove('gradient-active');
 		}
 	};
 
@@ -59,26 +59,26 @@
 		height: 175px;
 		transition: all 0.3s ease;
 		opacity: 0;
-		&:global(.gradient--active) {
+		&:global(.gradient-active) {
 			opacity: 1;
 		}
 	}
 	@keyframes easeInDown {
-		0% {
+		from {
 			opacity: 0;
 			transform: translateY(-30%);
 		}
-		100% {
+		to {
 			opacity: 1;
 			transform: translateY(0);
 		}
 	}
 	@keyframes easeOutDown {
-		0% {
+		from {
 			opacity: 1;
 			transform: translateY(0);
 		}
-		100% {
+		to {
 			opacity: 0;
 			transform: translateY(30%);
 		}

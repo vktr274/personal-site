@@ -49,5 +49,4 @@
 <SplashScreen {headline} {staticText} {loopedText} />
 <About id="about-me" {name} {subtitle} {avatar} {paragraph} />
 <Skills id="tech-stack" {technologies} />
-<div class="space space--xl" />
 <ChessStats id="chess-stats" {username} />

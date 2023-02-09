@@ -48,7 +48,7 @@
 
 <style lang="scss">
 	.hero-img {
-		background-image: url('/images/splash.jpg');
+		background-image: url('/images/splash.svg');
 	}
 	.gradient {
 		background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.0001), #fff);

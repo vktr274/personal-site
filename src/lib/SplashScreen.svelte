@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	export let loopedText: string[];
-	export let headline: string;
+	export let name: string;
 
 	let index = 0;
 	let transitionElement: HTMLElement;
@@ -35,8 +35,16 @@
 <div class="hero fullscreen hero-img parallax-img">
 	<div class="hero-body">
 		<div class="content u-text-center u-unselectable">
-			<h1 class="headline-3">{headline}</h1>
-			<h3 id="looped-text" class="m-0 text-gray-600 text-easeInDown" bind:this={loopedTextElement}>
+			<h1 class="headline-3">
+				My name is
+				<span class="text-teal-500">{name}</span>
+			</h1>
+			<h3 class="m-0 text-gray-700">I am a</h3>
+			<h3
+				id="looped-text"
+				class="m-0 text-indigo-700 text-easeInDown"
+				bind:this={loopedTextElement}
+			>
 				{loopedText[loopedText.length - 1]}
 			</h3>
 		</div>

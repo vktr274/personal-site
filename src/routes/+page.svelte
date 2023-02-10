@@ -5,10 +5,10 @@
 	import SplashScreen from '$lib/SplashScreen.svelte';
 	import type { Technology } from '$lib/types';
 
-	const headline = 'My name is Viktor';
-	const loopedText = ['Student.', 'Machine Learning Enthusiast.', 'Chess Enjoyer.', 'Developer.'];
+	const loopedText = ['Student', 'Machine Learning Enthusiast', 'Chess Enjoyer', 'Developer'];
 
 	const name = 'Viktor Modroczký';
+	const firstName = 'Viktor';
 	const avatar = '/images/avatar.jpg';
 	const subtitle = 'Intelligent Software Systems Student';
 	const paragraph = `I'm a student at the Faculty of Informatics and Information Technologies at the University
@@ -45,7 +45,7 @@
 	const username = 'viktor404notfound';
 </script>
 
-<SplashScreen {headline} {loopedText} />
+<SplashScreen name={firstName} {loopedText} />
 <About id="about-me" {name} {subtitle} {avatar} {paragraph} />
 <Skills id="tech-stack" {technologies} />
 <ChessStats id="chess-stats" {username} />

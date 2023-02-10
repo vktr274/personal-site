@@ -6,7 +6,6 @@
 	import type { Technology } from '$lib/types';
 
 	const headline = 'My name is Viktor';
-	const staticText = 'I am a';
 	const loopedText = ['Student.', 'Machine Learning Enthusiast.', 'Chess Enjoyer.', 'Developer.'];
 
 	const name = 'Viktor Modroczký';
@@ -46,7 +45,7 @@
 	const username = 'viktor404notfound';
 </script>
 
-<SplashScreen {headline} {staticText} {loopedText} />
+<SplashScreen {headline} {loopedText} />
 <About id="about-me" {name} {subtitle} {avatar} {paragraph} />
 <Skills id="tech-stack" {technologies} />
 <ChessStats id="chess-stats" {username} />

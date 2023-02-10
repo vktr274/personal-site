@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
-	export let staticText: string;
 	export let loopedText: string[];
 	export let headline: string;
 
@@ -26,8 +25,8 @@
 				loopedTextElement.classList.remove('text-easeOutDown');
 				loopedTextElement.classList.add('text-easeInDown');
 				index = (index + 1) % loopedText.length;
-			}, 500);
-		}, 4000);
+			}, 550);
+		}, 5000);
 	});
 </script>
 
@@ -37,10 +36,9 @@
 	<div class="hero-body">
 		<div class="content u-text-center u-unselectable">
 			<h1 class="headline-3">{headline}</h1>
-			<h5 class="m-0">{staticText}</h5>
-			<h5 id="looped-text" class="m-0 text-gray-600 text-easeInDown" bind:this={loopedTextElement}>
+			<h3 id="looped-text" class="m-0 text-gray-600 text-easeInDown" bind:this={loopedTextElement}>
 				{loopedText[loopedText.length - 1]}
-			</h5>
+			</h3>
 		</div>
 	</div>
 	<div bind:this={transitionElement} class="gradient" />
@@ -85,10 +83,10 @@
 	}
 	#looped-text {
 		&:global(.text-easeInDown) {
-			animation: easeInDown 0.5s ease;
+			animation: easeInDown 0.6s ease;
 		}
 		&:global(.text-easeOutDown) {
-			animation: easeOutDown 0.5s ease;
+			animation: easeOutDown 0.6s ease;
 		}
 	}
 </style>

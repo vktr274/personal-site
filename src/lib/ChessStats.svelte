@@ -74,7 +74,7 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
-			background-image: url('/images/chess.jpg');
+			background-image: url('/images/chess.svg');
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: 100vh;

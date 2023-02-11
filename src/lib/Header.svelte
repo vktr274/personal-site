@@ -6,7 +6,6 @@
 	export let textButtons: TextButton[];
 
 	let openMenu = false;
-	let hideShadow = true;
 
 	const triggerMenu = (): void => {
 		openMenu = !openMenu;
@@ -23,7 +22,6 @@
 			// show header
 			headerElement.classList.remove('header-hidden');
 		}
-		hideShadow = window.scrollY == 0;
 		prevScrollY = window.scrollY;
 	};
 </script>
@@ -32,7 +30,6 @@
 
 <div
 	class="header header-dark header-fixed u-unselectable header-animated header-animate-visibility"
-	class:u-shadow-none={hideShadow}
 	bind:this={headerElement}
 >
 	<div class="header-brand">

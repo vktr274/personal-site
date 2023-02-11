@@ -32,7 +32,7 @@
 
 <svelte:window on:scroll={onScroll} />
 
-<div class="hero fullscreen hero-img parallax-img">
+<div class="hero fullscreen hero-img parallax-img u-relative">
 	<div class="hero-body">
 		<div class="content u-text-center u-unselectable">
 			<h1 class="headline-3">

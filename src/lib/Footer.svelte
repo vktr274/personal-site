@@ -6,6 +6,8 @@
 		<a
 			href="https://www.freepik.com/free-vector/figures-chessboard-isometric-illustration_22656068.htm#page=3&query=chess%20board&position=7&from_view=search&track=aitestb"
 			class="text-gray-400"
+			target="_blank"
+			rel="noopener noreferrer"
 		>
 			Image by studio4rt
 		</a>

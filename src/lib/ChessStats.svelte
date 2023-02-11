@@ -15,7 +15,12 @@
 			<div class="col u-text-center">
 				<h2 class="text-white">Chess Stats</h2>
 				<span class="usquare">
-					<a class="utb utb-OLR" href="https://www.chess.com/member/{username}">
+					<a
+						class="utb utb-OLR"
+						href="https://www.chess.com/member/{username}"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
 						@{username}
 					</a>
 				</span>

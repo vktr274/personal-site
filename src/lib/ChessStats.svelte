@@ -13,7 +13,7 @@
 	<div class="u-center-alt">
 		<div class="row">
 			<div class="col u-text-center">
-				<h2>Chess Stats</h2>
+				<h2 class="text-white">Chess Stats</h2>
 				<span class="usquare">
 					<a class="utb utb-OLR" href="https://www.chess.com/member/{username}">
 						@{username}
@@ -25,10 +25,10 @@
 			<div class="col">
 				<div class="content u-text-center pt-3">
 					{#await getStats()}
-						<span class="icon rotate" style:font-size="28px">
+						<span class="icon rotate text-white" style:font-size="28px">
 							<i class="fas fa-chess-board fa-wrapper" />
 						</span>
-						<p>Loading...</p>
+						<p class="text-white">Loading...</p>
 					{:then stats}
 						<div class="tag-container">
 							<div class="tag tag--md tag--rounded u-shadow-lg">
@@ -64,7 +64,6 @@
 		animation: rotate 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 	}
 	.background-image {
-		--bg-size: 700px;
 		position: relative;
 		min-height: 100vh;
 		&::before {
@@ -78,8 +77,7 @@
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: 100vh;
-			opacity: 0.07;
-			z-index: -1;
+			opacity: 0.1;
 		}
 	}
 </style>

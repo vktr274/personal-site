@@ -7,7 +7,7 @@
 
 <div {id} class="mx-auto max-w-md">
 	<div class="row">
-		<div class="col u-text-center">
+		<div class="col u-text-center text-white">
 			<h2>My Tech Stack</h2>
 		</div>
 	</div>
@@ -17,7 +17,7 @@
 				<div class="min-w-200px mx-2">
 					<div class="content u-text-center pt-3">
 						<img class="tech-icon" src={tech.icon} alt={tech.name} />
-						<p class="title mt-2">{tech.name}</p>
+						<p class="title mt-2 text-white">{tech.name}</p>
 						<div class="tag-container">
 							{#each tech.details as detail}
 								<div class="tag tag--rounded">

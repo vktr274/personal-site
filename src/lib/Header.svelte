@@ -31,7 +31,7 @@
 <svelte:window on:scroll={onScroll} />
 
 <div
-	class="header header-fixed u-unselectable header-animated header-color header-animate-visibility"
+	class="header header-dark header-fixed u-unselectable header-animated header-animate-visibility"
 	class:u-shadow-none={hideShadow}
 	bind:this={headerElement}
 >
@@ -69,7 +69,7 @@
 			{#each textButtons as textButton}
 				<div class="nav-item hover-grow">
 					<a href={'#' + textButton.name} on:click={triggerMenu}>
-						{textButton.text}
+						<span>{textButton.text}</span>
 					</a>
 				</div>
 			{/each}
@@ -83,10 +83,6 @@
     dynamic classes to work without the :global() selector
 -->
 <style lang="scss">
-	@use 'src/styles/colors.scss' as colors;
-	.header-color {
-		background-color: colors.$bg-color;
-	}
 	.header {
 		&.header-animate-visibility {
 			transition: all 0.3s ease;

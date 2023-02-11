@@ -34,13 +34,13 @@
 
 <div class="hero fullscreen hero-img parallax-img">
 	<div class="hero-body">
-		<div class="content u-text-center u-unselectable text-shadow">
+		<div class="content u-text-center u-unselectable">
 			<h1 class="headline-3">
-				My name is
-				<span class="text-teal-500">{name}</span>
+				<span class="text-white">My name is</span>
+				<span class="text-teal-400">{name}</span>
 			</h1>
-			<h3 class="m-0 text-gray-700">I am a</h3>
-			<h3 id="looped-text" class="m-0 text-gray-700 text-easeInDown" bind:this={loopedTextElement}>
+			<h3 class="m-0 text-gray-500">I am a</h3>
+			<h3 id="looped-text" class="m-0 text-gray-500 text-easeInDown" bind:this={loopedTextElement}>
 				{loopedText[loopedText.length - 1]}
 			</h3>
 		</div>
@@ -54,7 +54,7 @@
 		background-image: url('/images/splash.svg');
 	}
 	.gradient {
-		background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.0001), #fff);
+		background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0.0001), colors.$bg-color);
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -94,8 +94,5 @@
 		&:global(.text-easeOutDown) {
 			animation: fadeOutDown 0.6s ease;
 		}
-	}
-	.text-shadow {
-		text-shadow: 0 0 10px colors.$bg-color;
 	}
 </style>

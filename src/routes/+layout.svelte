@@ -26,14 +26,23 @@
 	];
 </script>
 
-<header>
-	<nav>
-		<Header {user} {iconButtons} {textButtons} />
-	</nav>
-</header>
-<main>
-	<slot />
-</main>
-<footer>
-	<Footer />
-</footer>
+<div class="dark-mode">
+	<header>
+		<nav>
+			<Header {user} {iconButtons} {textButtons} />
+		</nav>
+	</header>
+	<main>
+		<slot />
+	</main>
+	<footer>
+		<Footer />
+	</footer>
+</div>
+
+<style lang="scss">
+	@use 'src/styles/colors.scss' as colors;
+	.dark-mode {
+		background-color: colors.$bg-color;
+	}
+</style>

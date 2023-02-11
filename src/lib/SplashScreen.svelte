@@ -34,17 +34,13 @@
 
 <div class="hero fullscreen hero-img parallax-img">
 	<div class="hero-body">
-		<div class="content u-text-center u-unselectable">
+		<div class="content u-text-center u-unselectable text-shadow">
 			<h1 class="headline-3">
 				My name is
 				<span class="text-teal-500">{name}</span>
 			</h1>
 			<h3 class="m-0 text-gray-700">I am a</h3>
-			<h3
-				id="looped-text"
-				class="m-0 text-indigo-700 text-easeInDown"
-				bind:this={loopedTextElement}
-			>
+			<h3 id="looped-text" class="m-0 text-gray-700 text-easeInDown" bind:this={loopedTextElement}>
 				{loopedText[loopedText.length - 1]}
 			</h3>
 		</div>
@@ -53,6 +49,7 @@
 </div>
 
 <style lang="scss">
+	@use 'src/styles/colors.scss' as colors;
 	.hero-img {
 		background-image: url('/images/splash.svg');
 	}
@@ -69,7 +66,8 @@
 			opacity: 1;
 		}
 	}
-	@keyframes easeInDown {
+
+	@keyframes fadeInDown {
 		from {
 			opacity: 0;
 			transform: translateY(-30%);
@@ -79,7 +77,7 @@
 			transform: translateY(0);
 		}
 	}
-	@keyframes easeOutDown {
+	@keyframes fadeOutDown {
 		from {
 			opacity: 1;
 			transform: translateY(0);
@@ -91,10 +89,13 @@
 	}
 	#looped-text {
 		&:global(.text-easeInDown) {
-			animation: easeInDown 0.6s ease;
+			animation: fadeInDown 0.6s ease;
 		}
 		&:global(.text-easeOutDown) {
-			animation: easeOutDown 0.6s ease;
+			animation: fadeOutDown 0.6s ease;
 		}
+	}
+	.text-shadow {
+		text-shadow: 0 0 10px colors.$bg-color;
 	}
 </style>

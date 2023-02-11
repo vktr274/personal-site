@@ -83,8 +83,9 @@
     dynamic classes to work without the :global() selector
 -->
 <style lang="scss">
+	@use 'src/styles/colors.scss' as colors;
 	.header-color {
-		background-color: rgb(242, 242, 242);
+		background-color: colors.$bg-color;
 	}
 	.header {
 		&.header-animate-visibility {

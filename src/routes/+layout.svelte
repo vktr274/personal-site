@@ -1,6 +1,7 @@
 <script lang="ts">
 	import 'cirrus-ui';
 	import '@fortawesome/fontawesome-free/css/all.min.css';
+	import 'devicon/devicon.min.css';
 
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';

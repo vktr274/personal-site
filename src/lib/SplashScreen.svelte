@@ -26,7 +26,7 @@
 				loopedTextElement.classList.add('text-easeInDown');
 				index = (index + 1) % loopedText.length;
 			}, 550);
-		}, 5000);
+		}, 3550);
 	});
 </script>
 

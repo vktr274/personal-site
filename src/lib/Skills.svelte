@@ -16,7 +16,7 @@
 			<div class="col">
 				<div class="min-w-200px mx-2">
 					<div class="content u-text-center pt-3">
-						<img class="tech-icon" src={tech.icon} alt={tech.name} />
+						<i class="{tech.icon} tech-icon" />
 						<p class="title mt-2 text-white">{tech.name}</p>
 						<div class="tag-container">
 							{#each tech.details as detail}
@@ -34,9 +34,7 @@
 
 <style lang="scss">
 	.tech-icon {
-		margin: auto;
-		width: 3.2rem;
-		height: 3.2rem;
+		font-size: 3.2rem;
 	}
 	.min-w-200px {
 		min-width: 256px;

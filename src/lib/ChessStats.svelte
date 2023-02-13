@@ -36,16 +36,16 @@
 						<p class="text-white">Loading...</p>
 					{:then stats}
 						<div class="tag-container">
-							<div class="tag tag--md tag--rounded u-shadow-lg">
-								<span class="uppercase font-bold">Bullet&nbsp;</span>
+							<div class="tag tag--rounded u-shadow-lg text-indigo-500 bg-indigo-100">
+								<span class="font-bold">Bullet&nbsp;</span>
 								{stats.chess_bullet.last.rating}
 							</div>
-							<div class="tag tag--md tag--rounded u-shadow-lg">
-								<span class="uppercase font-bold">Blitz&nbsp;</span>
+							<div class="tag tag--rounded u-shadow-lg text-indigo-500 bg-indigo-100">
+								<span class="font-bold">Blitz&nbsp;</span>
 								{stats.chess_blitz.last.rating}
 							</div>
-							<div class="tag tag--md tag--rounded u-shadow-lg">
-								<span class="uppercase font-bold">Rapid&nbsp;</span>
+							<div class="tag tag--rounded u-shadow-lg text-indigo-500 bg-indigo-100">
+								<span class="font-bold">Rapid&nbsp;</span>
 								{stats.chess_rapid.last.rating}
 							</div>
 						</div>

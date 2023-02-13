@@ -16,17 +16,19 @@
 		}
 	};
 
+	const loopText = () => {
+		loopedTextElement.classList.remove('text-easeInDown');
+		loopedTextElement.classList.add('text-easeOutDown');
+		setTimeout(() => {
+			loopedTextElement.innerHTML = loopedText[index];
+			loopedTextElement.classList.remove('text-easeOutDown');
+			loopedTextElement.classList.add('text-easeInDown');
+			index = (index + 1) % loopedText.length;
+		}, 550);
+	};
+
 	onMount(() => {
-		setInterval(() => {
-			loopedTextElement.classList.remove('text-easeInDown');
-			loopedTextElement.classList.add('text-easeOutDown');
-			setTimeout(() => {
-				loopedTextElement.innerHTML = loopedText[index];
-				loopedTextElement.classList.remove('text-easeOutDown');
-				loopedTextElement.classList.add('text-easeInDown');
-				index = (index + 1) % loopedText.length;
-			}, 550);
-		}, 3550);
+		setInterval(loopText, 3550);
 	});
 </script>
 

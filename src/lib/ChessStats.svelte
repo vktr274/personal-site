@@ -14,9 +14,9 @@
 		<div class="row">
 			<div class="col u-text-center">
 				<h2 class="text-white">Chess Stats</h2>
-				<span class="usquare">
+				<span class="usquare override-color">
 					<a
-						class="utb utb-OLR"
+						class="utb utb-OLR override-color"
 						href="https://www.chess.com/member/{username}"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -57,6 +57,7 @@
 </div>
 
 <style lang="scss">
+	@use 'src/styles/colors' as colors;
 	@keyframes rotate {
 		0% {
 			transform: rotate(0deg);
@@ -84,5 +85,18 @@
 			background-size: 100vh;
 			opacity: 0.1;
 		}
+	}
+	@mixin beforeAfterBgColor($color) {
+		&::before,
+		&::after {
+			background-color: $color;
+		}
+	}
+	.usquare.override-color {
+		@include beforeAfterBgColor(colors.$teal-400);
+	}
+	a.override-color {
+		color: colors.$teal-400;
+		@include beforeAfterBgColor(colors.$teal-400);
 	}
 </style>

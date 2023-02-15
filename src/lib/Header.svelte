@@ -53,9 +53,9 @@
 				</div>
 			</div>
 			{#each iconButtons as iconButton}
-				<div class="nav-item hover-grow">
+				<div class="nav-item">
 					<a href={iconButton.link} target="_blank" rel="noopener noreferrer">
-						<span class="icon">
+						<span class="icon hover-grow">
 							<i class={iconButton.classes} />
 						</span>
 					</a>
@@ -64,9 +64,9 @@
 		</div>
 		<div class="nav-right">
 			{#each textButtons as textButton}
-				<div class="nav-item hover-grow">
+				<div class="nav-item">
 					<a href={'#' + textButton.name} on:click={triggerMenu}>
-						<span>{textButton.text}</span>
+						<span class="hover-grow">{textButton.text}</span>
 					</a>
 				</div>
 			{/each}

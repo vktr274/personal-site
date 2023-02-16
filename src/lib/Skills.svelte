@@ -13,7 +13,7 @@
 	</div>
 	<div class="row">
 		{#each technologies as tech}
-			<div class="col">
+			<div class="col hover-grow">
 				<div class="min-w-200px mx-2">
 					<div class="content u-text-center pt-3">
 						<i class="{tech.icon} tech-icon" />
